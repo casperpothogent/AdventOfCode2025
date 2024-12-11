@@ -20,11 +20,10 @@ def count_loop_causing_obstacles():
 
     for x in range(len(matrix)):
         for y in range(len(matrix[0])):
-            if (x, y) != guard_position:
+            if (x, y) != guard_position and matrix[x][y] == ".":
                 print("poging: " + str(x) + ", " + str(y))
                 sum_loops += check_if_obstacle_causes_loop(matrix, guard_position, dir_index, (x, y))
     return sum_loops
-    #return check_if_obstacle_causes_loop(matrix, guard_position, dir_index, (6, 2))
 
 
 # checks if placing an obstacle at obstacle_position would cause a loop
@@ -73,12 +72,6 @@ def convert_map_to_matrix():
                 guard_x, guard_y = x, line.index("^")
 
     return matrix, (guard_x, guard_y)
-
-# used only by me to easily print the matrix and debug
-def print_matrix(matrix):
-    print("---- Matrix ----")
-    for row in matrix:
-        print("\t" + ' '.join(row))
 
 
 print(count_distinct_positions_along_path())

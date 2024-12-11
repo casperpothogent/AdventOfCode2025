@@ -1,6 +1,3 @@
-import math
-
-
 # first puzzle of day 07
 # correct answer: 10741443549536
 def calculate_sum_correct_values_two_operators():
